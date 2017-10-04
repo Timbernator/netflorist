@@ -1,0 +1,17 @@
+{
+    "elements": {},
+    "attributes": {
+        "file-medel": {
+            "context": "div"
+        },
+        "file-dropzone": {
+            "context": "div"
+        },
+        "file-model": {
+            "context": "input"
+        },
+        "file-read": {
+            "context": "input"
+        }
+    }
+}

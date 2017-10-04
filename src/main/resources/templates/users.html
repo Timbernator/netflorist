@@ -1,0 +1,59 @@
+<div>
+    <div class="header">
+        <div id="cart" >
+            <h3>
+                Admin: {{customer.username| capitalize}}
+            </h3>
+        </div>
+            <ul id="navBar">
+                <li>
+                    <a href="/" class="fa fa-sign-out"> Sign Out</a>
+                </li>
+                <li>
+                    <a href="/adminOrder" class="fa fa-list-ul"> Orders</a>
+                </li>
+                <li>
+                    <a href="/adminProducts" class="fa fa-briefcase"> Products</a>
+                </li>
+                <li>
+                    <a href="/users" class="fa fa-users"> Users</a>
+                </li>
+            </ul>
+    
+    </div>
+    
+    
+    
+</div>
+<div> 
+    <div>
+        <a href="/adminRegister">
+            <input type="submit" value="Add Admin"/>
+        </a>
+    </div> 
+    <form ng-controller="deleteCrtl">
+
+        <table >
+            <caption> List of Users </caption>
+            <tr>
+                <th >Name</th>
+                <th >Email</th>
+                <th >Role</th>
+                <th >Username</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="admin in customerAdmin">
+                
+                <td>{{admin.name}}</td>
+                <td>{{admin.email}}</td>
+                <td>{{admin.userRole}}</td>
+                <td>{{admin.username}}</td>
+                <td><input type="submit" ng-click="deleteUser(admin.id)"  value="Delete"/></td>
+            </tr>
+             
+        </table>
+
+    </form> 
+       
+            
+</div>

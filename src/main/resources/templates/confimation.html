@@ -1,0 +1,42 @@
+<div>
+    
+    <div class="header">
+            <div id="cart" >
+                <h3>
+                    Admin: {{customer.username| capitalize}}
+                </h3>
+            </div>
+                <ul id="navBar">
+                    <li>
+                        <a href="/">Log Out</a>
+                    </li>
+                    <li>
+                        <a href="/">Orders</a>
+                    </li>
+                    <li>
+                        <a href="/adminProducts">Products</a>
+                    </li>
+                    <li>
+                        <a href="/users">Users</a>
+                    </li>
+                </ul>
+        </div>
+        <div class="container" >
+            <section id="content_wrong_id" >
+                <h1> <strong>{{customer.username}}</strong></h1>
+                <h2> <strong>{{newUser.name}}</strong> is Successfully Registered!!</h2>
+                <p>Please Use the following to log in</p>
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td> <strong>{{newUser.username}}</strong> </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td> <strong>{{newUser.password}}</strong> </td>
+                    </tr>
+                </table>         
+               <a href="/adminPage" ><input type="submit" value="Home" /></a>    
+            </section>
+        </div>
+</div>

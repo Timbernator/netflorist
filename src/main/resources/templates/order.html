@@ -1,0 +1,41 @@
+     <div class="header" >
+        <div id="cart">
+            <p>
+                Logged In: {{customer.username| capitalize}}
+            </p>
+        </div>
+        
+            <ul id="navBar">
+                
+                <li  >
+                    <a href="/" class="fa fa-sign-out">Sign Out</a>
+                </li>
+                <li >
+                    <a href="/order" class="fa fa-list-ul"> Orders</a>
+                </li>
+                <li >
+                    <a class="fa fa-user" href="/register">My profile</a>
+                </li>
+                
+            </ul>
+    </div>
+<div class="container">
+    <div id="content">
+        
+        <h1>Order Details</h1><br/>
+        <i class="fa fa-check fa-5x"  aria-hidden="true"></i>
+        <br/>
+        <h2>{{order.name}} your Order No:{{order.id}}  was  Successfully placed<br/> with  {{order.quantity}} Items,<br/>
+        
+            Thank you for purchasing you will be contacted for when the delivery is ready!  
+        </h2> 
+        <br/>
+        <br/>
+        <a href="/">
+            <input  type="submit" 
+            value="Back To Login" 
+            />
+         </a>
+    </div>
+    
+</div>

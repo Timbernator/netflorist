@@ -1,0 +1,196 @@
+<div class="container_r">
+            
+    <section id="content_r">
+        
+        <h1><strong>Registration Form</strong></h1>
+
+        <form ng-submit="submit()" name="registerForm" novalidate="">
+    
+            <div>
+                <h2><strong>User Details</strong></h2>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="id" 
+                    placeholder="ID Number/Passport" 
+                    ng-model="customer.id"
+                    />
+            </div>
+                        
+            <div class="wrapper">
+                <input type="text" 
+                    name="name" 
+                    placeholder="First Name"
+                    ng-model="customer.name"
+                    th:required="required"/>
+            </div>
+            
+            <div class="wrapper">
+                <input type="text" 
+                    name="surname" 
+                    placeholder="Surname" 
+                    ng-model="customer.surname"
+                    th:required="required"/>
+                
+            </div>
+              
+            <div class="wrapper">
+                <input type="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    ng-model="customer.email"
+                    th:required="required"
+
+                /> 
+                <span>
+                    $pristine-{{registerForm.email.$pristine}},
+                    $dirty-{{registerForm.email.$dirty}},
+                    $untouched-{{registerForm.email.$untouched}},
+                    $touched-{{registerForm.email.$touched}},
+                    $invalid-{{registerForm.email.$invalid}},
+                    $valid -{{registerForm.email.$valid}}
+                </span> 
+              
+               
+            </div>
+            
+            <div>
+                <select  name="gender" ng-model="customer.gender">
+                    <option value ="">Gender:</option>
+                    <option value ="Male">Male</option>
+                    <option value ="Female">Female</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <input type="date" 
+                    name="date" 
+                    placeholder="Date Of Birth" 
+                    ng-model="customer.dob"
+                  
+                />
+            </div>
+         
+            <div>
+                <br></br>
+                <h2><strong>Login Details</strong></h2>
+                <br></br>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="username" 
+                    placeholder="Username" 
+                    ng-model="customer.username"
+                    th:required="required" />
+                
+            </div>
+                       
+            <div ng-controller="passwordCtrl">  
+                
+                <div class="wrapper">
+                    <input  type="password" 
+                        name="password" 
+                        placeholder="Password" 
+                        ng-model="customer.password"
+                        ng-init="password_error_show = 0"
+                        ng-focus="password_error_show = 1"
+                        ng-change="password_error_show = password_error_show+1;changepassword()"
+                        maxlength="10"
+                        minlength="4"
+                        th:required="required"/> 
+                    
+                   
+
+<!--                    <div ng-show="password_error_show"
+                         Style="color:#ff0000;"> 
+
+                        <div style="margin-left: 24.1em;">
+                            Password length must be between 4 to 10.
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="wrapper">
+                    <input class="align" 
+                        type="password" 
+                        name="repassword" 
+                        placeholder="Re-enter Password" 
+                        ng-model="passw2"
+                        ng-init="passw2_error_show = 0"
+                        ng-focus="passw2_error_show = 1"
+                        ng-change="passw2_error_show = passw2_error_show+1;changepassword()"
+                        maxlength="10"
+                        minlength="4"
+                        th:required="required"/> 
+                    
+                </div>
+                    <span ng-show="registerForm.repassword.$pristine">
+                        $pristine-{{registerForm.repassword.$pristine}}
+                    </span>
+                    <span ng-show="registerForm.repassword.$dirty">
+                        $dirty-{{registerForm.repassword.$dirty}}
+                    </span>
+                    <span ng-show="registerForm.repassword.$untouched">
+                        $untouched-{{registerForm.repassword.$untouched}}
+                    </span>
+                    <span ng-show="registerForm.repassword.$touched">
+                        $touched-{{registerForm.repassword.$touched}}
+                    </span>
+                    <span ng-show="registerForm.repassword.$invalid">
+                        $invalid-{{registerForm.repassword.$invalid}}
+                    </span>
+                    <span ng-show="registerForm.repassword.$valid">
+                        $valid -{{registerForm.repassword.$valid}}
+                    </span>-->
+<!--                <p>
+                    <span style="color:#ff0000;margin-left: -0.5em;"
+                          ng-show=" customer.password!==passw2">
+                        Password Mismatch                        
+                    </span>
+                    <span style="color:#3c823f;margin-left: -2.5em;"
+                          ng-show="!passValidation">
+                        Password Match                        
+                    </span>
+                </p>-->
+            </div>
+            
+                       
+            <div>
+                Security Question:<br/>
+                <select name="securityQuestion" ng-model="customer.securityQue">
+                    <option value="dogName">What is the name of your Dog?</option>
+                    <option value="favourateColor">What is your Favorite color?</option>
+                    <option value="momsName">What is your mothers name?</option>
+                    <option value="favourateSong">What is your Favorite movie></option>
+                    <option value="specialNumber">What is your Special Number?</option>
+                    <option value="specialPlace">which place in the world is Special to you?</option>
+                    <option value="favourateSong">What is your Favorite song?</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="securityAnswer" 
+                    placeholder="Security Answer" 
+                    ng-model="customer.securityAns"
+                    th:required="required"/>
+            </div>
+                       
+            <div>
+                <input  type="submit" 
+                        value="Save" 
+                        ng-disabled="myForm.$invalidate"
+                        id="submit"
+                        />
+                <input type="text" name="userRole" ng-model="customer.userRole" value="client" hidden=""/>
+            </div>    
+
+        </form>
+        <a href="/">
+            
+            <input  type="submit" 
+            value="Back To Login" 
+            
+            />
+            
+        </a>
+    </section>
+</div>

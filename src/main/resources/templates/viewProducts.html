@@ -1,0 +1,91 @@
+<div ng-controller="shoppingCtrl">    
+    <div class="header" >
+        <div id="cart">
+            <p>
+                R {{ cartSum() }}
+            </p>
+        </div>
+        
+            <ul id="navBar">
+                
+                <li  >
+                    <a href="/" class="fa fa-sign-out">Sign Out</a>
+                </li>
+                <li >
+                    <a class="fa fa-shopping-cart"   ng-click="myFunc()"> :{{cartItems.length}}</a>
+                </li>
+                <li >
+                    <a class="fa fa-user" href="/register">My profile</a>
+                </li>
+                
+            </ul>
+    </div>
+
+    <div >
+       
+        <div ng-show="!showMe">
+            <div class="container">
+                <ul ng-repeat="product in products">
+                    <li>
+                     <section id="product_id" >
+                            <form name="productsFrm" >
+                                <h1>{{product.name}}</h1>
+                                <img ng-src="{{product.image}}" width="80" height="80" alt=""/>
+                                <input type="text" name="decription" value="{{product.description}}" hidden="" />
+                                <h2> R{{product.price}}</h2>
+                                <input type="number" ng-model="quantity" value="1" hidden=""/> 
+                                <input type="submit" ng-click="addCartItem(product)" value="Add To Cart"/>
+                            </form>    
+                        </section>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+        <div ng-show="cartItems.length > 0" >
+            <div ng-show="showMe">
+                <table cellspacing="5" cellpadding="5" border="1" >
+                    <caption>Shopping Car </caption>
+                    <tr>
+                        <th >Code</th>
+                        <th >Name</th>
+                        <th >Price</th>
+                        <th >Quantity</th>
+                        <th>Remove</th>
+                    </tr>
+                   <tr ng-repeat="item in cartItems">
+                        <td>
+                            {{item.product_id}}
+                        </td> 
+                        <td>
+                            {{item.name}}
+                        </td>   
+                        <td>
+                            {{item.price }}
+                        </td>   
+                        <td>
+                            <button ng-click="increase(item)">+</button> 
+                            {{item.quantity}}
+                            <button ng-click="decrease(item)">-</button>   
+                        </td>
+                        <td>
+                            <input type="submit" ng-click="removeFromCart(item)" value="Remove"/>
+                        </td>
+                    </tr>
+                </table> 
+            
+                <div>
+                     <form name="cartFrm" ng-submit="checkOut()" ng-controller="shoppingCtrl">
+                         <input  type="submit" value="Check Out"/>
+    
+                     </form>
+                 </div> 
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+      

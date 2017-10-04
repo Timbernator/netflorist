@@ -1,0 +1,32 @@
+<div id="content_forgot_password">
+    <div>
+         <h1>Enter Payment details</h1>
+    </div>
+    <h2>
+        Hey {{customer.name}} to place your Order for {{itemsNum}} Items <br/>with the total cost of R{{totalAmnt}}.
+        please enter your banking <br/> details below to make your payment.
+    </h2>
+    <br/>    
+    
+    <form ng-submit="payment()">
+            <div class="wrapper">
+                <input type="text" ng-model="bankAcc" placeholder="Account Number" />
+            </div>
+            <div class="wrapper">
+                    <input type="text" ng-model="bankpin" placeholder="pin"/>
+            </div>
+        
+        <select  ng-model="bankname">
+            <option value="" selected="">----SELECT BANK----</option>
+                <option value="capitec">CAPITEC BANK</option>
+                <option value="standard">STANDARD BANK</option>
+                <option value="nedbank">NEDBANK</option>
+                <option value="fnb">FNB</option>
+                <option value="absa">ABSA</option>
+            </select>
+            
+            <br/>
+            {{balanceResponse}}
+            <input type="submit" value="Pay"/>
+        </form>
+</div>

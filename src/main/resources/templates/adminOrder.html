@@ -1,0 +1,72 @@
+<div>
+    <div class="header">
+        <div id="cart" >
+            <h3>
+                Admin: {{customer.username| capitalize}}
+            </h3>
+        </div>
+            <ul id="navBar">
+                <li>
+                    <a href="/" class="fa fa-sign-out"> Sign Out</a>
+                </li>
+                <li>
+                    <a href="/adminOrder" class="fa fa-list-ul"> Orders</a>
+                </li>
+                <li>
+                    <a href="/adminProducts" class="fa fa-briefcase"> Products</a>
+                </li>
+                <li>
+                    <a href="/users" class="fa fa-users"> Users</a>
+                </li>
+            </ul>
+    </div>
+    
+    
+    
+</div>
+<div> 
+
+    <form ng-controller="ordersCtrl">
+    <section>
+	<table>
+            <caption>List Of Orders</caption>
+                <thead>
+                    <tr>
+			<th >ID</th>
+                        <th >Status</th>
+                        <th >Order Date</th>
+                        <th >Delivery Date</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+		</thead>
+		<tbody>
+                    <tr ng-repeat="order in allOrders">
+			<td>{{order.id}}</td>
+                        <td>
+                            <select name="status"   ng-model="order.status">
+                                <option value="recieved">Order Recieved</option>
+                                <option value="processing">In progress</option>
+                                <option value="shipping">Ready to be shipped</option>
+                                <option value="delivered">Order Delivered</option>
+                            </select>
+                        </td>
+                        <td hidden="">{{order.quantity}}</td>
+                        <td hidden="">{{order.amount}}</td>
+                        <td>{{order.orderedDate}}</td>
+                        <td><input type="date" id="exampleInput" name="input" ng-model="example.value"
+       placeholder="yyyy-MM-dd" min="2013-01-01" max="2099-12-31" /></td>
+                        <td><input type="date" 
+                            name="date"
+                            ng-model="order.deliver.deliveryDate"/>
+                        </td>
+                        <td><input type="submit" ng-click="updateOrder(order)"  value="Update"/></td>
+                        <td><input type="submit" ng-click="deleteOrder(order)"  value="Delete"/></td>
+                    </tr>
+		</tbody>
+            </table>
+	</section>
+    </form>    
+            
+</div>
+

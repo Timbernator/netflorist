@@ -1,0 +1,214 @@
+<div class="container_r">
+            
+    <section id="content_r">
+        
+        <h1><strong>Registration Form</strong></h1>
+
+        <form ng-submit="submit()" name="registerForm">
+               <!--ng-controller="registerCtrl"-->       
+            <div>
+                <h2><strong>User Details</strong></h2>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="id" 
+                    placeholder="ID Number/Passport" 
+                    ng-model="customer.id"
+                    />
+            </div>
+                        
+            <div class="wrapper">
+                <input type="text" 
+                    name="name" 
+                    placeholder="First Name"
+                    ng-model="customer.name"
+                    th:required="required"/>
+            </div>
+            
+            <div class="wrapper">
+                <input type="text" 
+                    name="surname" 
+                    placeholder="Surname" 
+                    ng-model="customer.surname"
+                    th:required="required"/>
+            </div>
+              
+            <div class="wrapper">
+                <input type="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    ng-model="customer.email"
+                    th:required="required"
+                /> 
+                <br></br>
+<!--                <span style="color:red" ng-show="registerForm.email.$dirty/>
+                    <span ng-show="registerForm.email.$invalid" >Not a valid e-mail address</span>
+                    <span ng-show="registerForm.email.$error.required">Email is required.</span>
+                    <span ng-show="registerForm.email.$error.email">Invalid email address.</span>-->
+               
+            </div>
+            <div>
+                <select  name="gender" ng-model="customer.gender">
+                    <option value ="">Gender:</option>
+                    <option value ="Male">Male</option>
+                    <option value ="Female">Female</option>
+                </select>
+            </div>
+                        <!--<div>
+                            <select id="txtTitle" name="txtTitle" ng-model="cur.title">
+                                    <option value ="title">Title:</option>
+                                    <option value ="Mr">Mr</option>
+                                    <option value ="Miss">Miss</option>
+                                    <option value ="Mrs">Mrs</option>
+                                    <option value ="Dr">Dr</option>
+                                    <option value ="Prof">Prof</option>
+                                </select>
+                        </div>-->
+            <div class="wrapper">
+                <input type="date" 
+                    name="date" 
+                    placeholder="Date Of Birth" 
+                    ng-model="customer.dob"
+                  
+                />
+            </div>
+
+
+                       <!-- <div class="wrapper">
+
+                        <input  type="text" 
+                                id="txtTel" 
+                                name="txtTel" 
+                                placeholder="Cell Number" 
+                                ng-model="cur.cell"
+                                th:required="required"/>
+                        </div>
+                        <div class="wrapper">
+                             <input type="text" 
+                                    id="txtAddress1" 
+                                    name="txtAddress1"  
+                                    placeholder="Postal Address" 
+                                    th:required="required"/>
+
+                        </div>
+                        <div class="wrapper">
+                            <input type="text" 
+                                   id="txtCity" 
+                                   name="txtCity" 
+                                   placeholder=" Town/City" />
+                        </div>
+                        <div class="wrapper">
+
+                            <input type="text" 
+                                   id="txtPostCode" 
+                                   name="txtPostCode" 
+                                   placeholder="Postal Code" />
+                        </div>
+                        <div>
+                            Country:<br>
+                            <select id="txtCountry" name="txtCountry">
+                                <option value ="country">Select Country</option>
+                                <option value ="South Africa">South Africa</option>
+                                <option value ="Angola">Angola</option>
+                                <option value ="Botswana">Botswana</option>
+                                <option value ="Namibia">Namibia</option>
+                                <option value ="Mozambique">Mozambique</option>
+                                <option value ="Malawi">Malawi</option>
+                                <option value ="Swaziland">Swaziland</option>
+                                <option value ="Lesotho">Lesotho</option>
+                                <option value ="Zimbabwe">Zimbabwe</option>
+                            </select>
+                        </div>-->
+                        <div>
+                            <input type="hidden" name="userRole" ng-model="customer.userRole" value="client" />
+                        </div>
+                       
+                          
+                           
+                       
+            <div>
+                <br></br>
+                <h2><strong>Login Details</strong></h2>
+                <br></br>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="username" 
+                    placeholder="Username" 
+                    ng-model="customer.username"
+                    th:required="required" />
+            </div>
+                       
+            <div ng-controller="passwordCtrl">  
+<!--                
+                 <input placeholder="Password"
+                        name="pwd" ng-model="thePwd"
+                        type="password" 
+                        pattern=".{2,}" 
+                        th:required="required" 
+                        />
+                 <input placeholder="Check Password"
+                        name="chk" 
+                        ng-model="chkPwd"
+                        type="password"
+                        wj-validation-error="chkPwd != thePwd ? 'Passwords don\'t match' : ''" />-->
+                
+                <div class="wrapper">
+                    <input  type="password" 
+                        name="password" 
+                        placeholder="Password" 
+                        ng-model="customer.password"
+                        maxlength="10"
+                        minlength="4"
+                        th:required="required"/>               
+                </div>                           
+                <div class="wrapper">
+                    <input class="align" 
+                        type="password" 
+                        name="repassword" 
+                        placeholder="Re-enter Password" 
+                        ng-model="passw2"
+                        maxlength="10"
+                        minlength="4"
+                        th:required="required"/> 
+                    
+                </div>
+               <span ng-show="incomplete||error">Password does not match</span><br/>
+            </div>
+            
+                       
+            <div>
+                Security Question:<br/>
+                <select name="securityQuestion" ng-model="customer.securityQue">
+                    <option value="dogName">What is the name of your Dog?</option>
+                    <option value="favourateColor">What is your Favorite color?</option>
+                    <option value="momsName">What is your mothers name?</option>
+                    <option value="favourateSong">What is your Favorite movie></option>
+                    <option value="specialNumber">What is your Special Number?</option>
+                    <option value="specialPlace">which place in the world is Special to you?</option>
+                    <option value="favourateSong">What is your Favorite song?</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="securityAnswer" 
+                    placeholder="Security Answer" 
+                    ng-model="customer.securityAns"
+                    th:required="required"/>
+            </div>
+                <input  type="submit" 
+                value="Save" 
+                ng-disabled="myForm.$invalidate"
+                id="submit"
+            />
+                
+
+        </form>
+        <a href="/">
+            <input  type="submit" 
+            value="Back To Login" 
+            
+            />
+        </a>
+    </section>
+</div>

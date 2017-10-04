@@ -1,0 +1,60 @@
+<div>
+    <div class="header">
+        <div id="cart" >
+            <h3>
+                Admin: {{customer.username| capitalize}}
+            </h3>
+        </div>
+            <ul id="navBar">
+                <li>
+                    <a href="/" class="fa fa-sign-out"> Sign Out</a>
+                </li>
+                <li>
+                    <a href="/adminOrder" class="fa fa-list-ul"> Orders</a>
+                </li>
+                <li>
+                    <a href="/adminProducts" class="fa fa-briefcase"> Products</a>
+                </li>
+                <li>
+                    <a href="/users" class="fa fa-users"> Users</a>
+                </li>
+            </ul>
+    </div>
+    <div> 
+        <div>
+            <a href="/adminAddProduct">
+                <input type="submit" value="Add Products"/>
+            </a>
+        </div> 
+        <form ng-controller="addProduct">
+            <table style="color: #ffffff" cellspacing="5" cellpadding="5" border="1">
+                <tr>
+                    <strong> List of products </strong>
+                </tr>
+                <tr>
+
+                    <th >Image</th>
+                    <th >Id</th>
+                    <th >Name</th>
+                    <th >Description</th>
+                    <th >Price</th>
+                    <th >Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="product in products">
+                    <td><img ng-src="data:image/jpg;base64,{{product.image}}" width="40" height="40" alt=""/></td>
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                    <td><input type="submit" ng-click=""  value="Edit"/></td>
+                    <td><input type="submit" ng-click=""  value="Delete"/></td>
+                </tr>
+            </table>
+        </form> 
+    </div>
+    
+    
+</div>
+
+

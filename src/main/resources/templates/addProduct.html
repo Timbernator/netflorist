@@ -1,0 +1,54 @@
+
+<div class="container">
+    <section id="content" >
+        <h1>Add Product</h1>
+        <form ng-submit="saveProd()"  name="addProductFrm"  ><!--ng-controller="loginCtrl"-->
+            
+            <div class="wrapper" > 
+                   <input type="text" 
+                    placeholder="Product Name" 
+                    ng-model="name" 
+                    th:required="required"
+                    />
+            </div>
+            <div class="wrapper" >
+                
+                <input type="text" 
+                    placeholder="Description" 
+                    ng-model="description" 
+                    th:required="required"/>
+            </div>
+            <div class="wrapper" >
+                
+                <input type="text" 
+                    placeholder="Price" 
+                    ng-model="price" 
+                    th:required="required"/>
+            </div>
+            <div class="form-group row">
+<!--                <label for="image">Image</label>-->
+                <div >
+                    <label for="filePicker">Upload Photo of the product</label>
+                    <input type="file" id="filePickerImage" ng-model="filePickerImage" accept="image/png/jpeg"  />
+        	</div>
+            </div>
+            
+
+            
+<!--            <div>
+                
+                <input type="file" 
+                       id="file" 
+                       name="file" 
+                       file-model="image"
+                    />
+
+            </div>-->
+            <div>
+                <input type="submit"  value="Save"  />
+            </div>
+            
+           
+        </form>
+    </section>
+</div>

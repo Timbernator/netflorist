@@ -1,0 +1,147 @@
+<div class="container_r">
+            
+    <section id="content_r">
+        
+        <h1><strong>Registration Form</strong></h1>
+
+        <form ng-submit="deliver()" name="registerForm">
+               <!--ng-controller="registerCtrl"-->       
+            <div>
+                <h2><strong>User Details</strong></h2>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="id" 
+                    placeholder="ID Number/Passport" 
+                    ng-model="admin.id"
+                    />
+            </div>
+                        
+            <div class="wrapper">
+                <input type="text" 
+                    name="name" 
+                    placeholder="First Name"
+                    ng-model="admin.name"
+                    th:required="required"/>
+            </div>
+            
+            <div class="wrapper">
+                <input type="text" 
+                    name="surname" 
+                    placeholder="Surname" 
+                    ng-model="admin.surname"
+                    th:required="required"/>
+            </div>
+              
+            <div class="wrapper">
+                <input type="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    ng-model="admin.email"
+                    th:required="required"
+                /> 
+                <br></br>
+<!--                <span style="color:red" ng-show="registerForm.email.$dirty/>
+                    <span ng-show="registerForm.email.$invalid" >Not a valid e-mail address</span>
+                    <span ng-show="registerForm.email.$error.required">Email is required.</span>
+                    <span ng-show="registerForm.email.$error.email">Invalid email address.</span>-->
+               
+            </div>
+            <div>
+                <select  name="gender" ng-model="admin.gender">
+                    <option value ="">Gender:</option>
+                    <option value ="Male">Male</option>
+                    <option value ="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="wrapper">
+                <input type="date" 
+                    name="date" 
+                    placeholder="Date Of Birth" 
+                    ng-model="admin.dob"
+                />
+            </div>
+               <div>
+                   <h1><input type="radio" ng-model="admin.userRole" value="admin"/>Administrator</h1><br/>
+                   <h1><input type="radio" ng-model="admin.userRole" value="client"/>Customer</h1>
+<!--                <select  name="role" ng-model="admin.role">
+                    <option value="">Role</option>
+                    <option value ="admin" selected=""></option>
+                    <option value ="client">Customer</option>
+                </select>-->
+            </div>
+
+            <div>
+                <br></br>
+                <h2><strong>Login Details</strong></h2>
+                <br></br>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="username" 
+                    placeholder="Username" 
+                    ng-model="admin.username"
+                    th:required="required" />
+            </div>
+                       
+            <div ng-controller="passwordCtrl">  
+                
+                <div class="wrapper">
+                    <input  type="password" 
+                        name="password" 
+                        placeholder="Password" 
+                        ng-model="admin.password"
+                        maxlength="10"
+                        minlength="4"
+                        th:required="required"/>               
+                </div>                           
+                <div class="wrapper">
+                    <input class="align" 
+                        type="password" 
+                        name="repassword" 
+                        placeholder="Re-enter Password" 
+                        ng-model="passw2"
+                        maxlength="10"
+                        minlength="4"
+                        th:required="required"/> 
+                    
+                </div>
+               <span ng-show="incomplete||error">Password does not match</span><br/>
+            </div>
+            <div>
+                
+                <select name="securityQuestion" ng-model="admin.securityQue">
+                    <option value="">Security Question:</option>
+                    <option value="dogName">What is the name of your Dog?</option>
+                    <option value="favourateColor">What is your Favorite color?</option>
+                    <option value="momsName">What is your mothers name?</option>
+                    <option value="favourateSong">What is your Favorite movie></option>
+                    <option value="specialNumber">What is your Special Number?</option>
+                    <option value="specialPlace">which place in the world is Special to you?</option>
+                    <option value="favourateSong">What is your Favorite song?</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <input type="text" 
+                    name="securityAnswer" 
+                    placeholder="Security Answer" 
+                    ng-model="admin.securityAns"
+                    th:required="required"/>
+            </div>
+                <input  type="submit" 
+                value="Save" 
+                ng-disabled="myForm.$invalidate"
+                id="submit"
+            />
+                
+
+        </form>
+        <a href="/">
+            <input  type="submit" 
+            value="Back To Login" 
+            
+            />
+        </a>
+    </section>
+</div>
